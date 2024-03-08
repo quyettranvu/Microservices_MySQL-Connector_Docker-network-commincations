@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: "configserver"
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: "classpath:/config"
+
+# The dependency actuator allows us to expose the /busrefresh endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        # include: busrefresh (in case just want to expose only for Spring Cloud Bus)
+  
+  #mandatory for healthcheck to ensure configserver ready and live
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
+  #required for above two settings and for url: actuator/health
+  endpoint:
+      health:
+        probes:
+          enabled: true
+
+# for encryptiong sensitive informations when access to external repositories
+#symmetric encryption as below, another is asymmetric encryption uisng keytool->create keystore (location, password, alias)
+#Spring generates HTTP endpoints (/encrypt and /decrypt)
+encrypt:
+  key: "45D81EC1EF61DF9AD8D3E5BB397F9"
+server: 
+  port: 8071
+  

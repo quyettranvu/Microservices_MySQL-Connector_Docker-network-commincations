@@ -1,0 +1,11 @@
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to Quyet Eazybank loans prod APIs"
+  contactDetails:
+    name: "Quyet Tran Vu Prod"
+    email: "quyettranvuprod@gmail.com"
+  onCallSupport:
+      -(555) 738 5612
+      -(555) 748 5712

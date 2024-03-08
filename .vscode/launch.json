@@ -1,0 +1,41 @@
+{
+    /*
+    Profiles configurations for Spring with the use of command-line, JVM and environment options(
+    the priority will follow this order, if none specified, local will be set as default)
+    These configurations can override any cloud configurations: with classpath, file system, github repo,...
+    */
+    "configurations": [
+      {
+        "type": "java",
+        "name": "CardsApplication",
+        "request": "launch",
+        "mainClass": "com.eazybytes.cards.CardsApplication",
+        "projectName": "cards"
+      },
+      {
+        "type": "java",
+        "name": "LoansApplication",
+        "request": "launch",
+        "mainClass": "com.eazybytes.loans.LoansApplication",
+        "projectName": "loans"
+      },
+      {
+        "type": "java",
+        "name": "ConfigserverApplication",
+        "request": "launch",
+        "mainClass": "com.eazybytes.configserver.ConfigserverApplication",
+        "projectName": "configserver"
+      },
+      {
+        "type": "java",
+        "name": "AccountsApplication",
+        "request": "launch",
+        "mainClass": "com.eazybytes.accounts.AccountsApplication",
+        "projectName": "accounts",
+        "env": {
+          "SPRING_PROFILES_ACTIVE": "qa",
+          "BUILD_VERSION": "1.8"
+        }
+      }
+    ]
+}

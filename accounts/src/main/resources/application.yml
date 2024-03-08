@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "accounts"
+  profiles:
+    active: "prod"
+  # in real production it will the datas in volumes and storages so when deleting containers -> not lost datas
+  datasource:
+    url: jdbc:mysql://localhost:3306/accountsdb
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+  # Spring Boot will always check schema.sql
+  sql:
+    init:
+      mode: always
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+# The dependency actuator allows us to expose the /busrefresh endpoint
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        # include: busrefresh (in case just want to expose only for Spring Cloud Bus)
+
+info:
+  build:
+    version: ${build.version}

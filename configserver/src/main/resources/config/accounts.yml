@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to Quyet Eazybank accounts local APIs"
+  contactDetails:
+    name: "Quyet Tran Vu"
+    email: "quyettranvu@gmail.com"
+  onCallSupport:
+      -(555) 738 5612
+      -(555) 748 5712
